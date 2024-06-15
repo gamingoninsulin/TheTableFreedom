@@ -1,0 +1,26 @@
+/* Sticky footer styles */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  padding-bottom: 20%; /* Padding bottom to create space between content and footer */
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0; /* Add padding to adjust the height of the footer */
+  background-color: #333; /* Set the background color of the footer */
+  color: #fff; /* Set the text color of the footer */
+  text-align: center; /* Center align the text in the footer */
+}
+
+a {
+  color: #6c757d;
+}
+a:hover {
+  color: #525a60;
+}

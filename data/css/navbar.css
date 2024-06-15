@@ -1,0 +1,12 @@
+.navbar {
+  margin: 0;
+  margin-bottom: 2%; /* Padding bottom to create space between content and footer */
+}
+
+.offcanvas {
+  max-width: 80%; /* Adjust the width as needed */
+}
+
+.dropdown-menu {
+  position: static; /* Set the position to static to allow dynamic positioning */
+}
