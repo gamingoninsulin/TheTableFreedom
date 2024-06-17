@@ -74,6 +74,7 @@ h1 {
   font-size: 50px !important;
   text-align: center !important;
 }
+
 #item-image,
 #item-item {
   margin-top: 0px;
@@ -143,95 +144,22 @@ h1 {
 /* ============================= Bing Ai ====================================*/
 
 .iframe-container {
-  padding-top: 50px;
-  width: 90%; /* Set width to 90% */
-  height: 90vh; /* Set height to 90% viewport height */
-  text-align: center;
-  position: absolute; /* Use absolute positioning */
-  top: 50%; /* Position vertically at 50% viewport height */
-  left: 55%; /* Position horizontally at 50% viewport width */
-  transform: translate(-50%, -50%); /* Center the element using translate */
-  overflow: hidden !important; /* Hide scrollbar even if other styles conflict */
-
-/* ============================= Radio ====================================*/
-.bg-hex {
-  background-color: #ffdbac;
-}
-.pre-taged {
-  tab-size: 4;
-}
-.box-bg {
-  background: #ffdc99;
-  box-shadow: -10px 5px 5px #ffdca9;
-}
-#radio {
-  margin: 5% 5%;
-}
-#Rdiv {
-  margin: 3vh 0px;
-  background: #ffdbac;
-}
-#Rdiv p {
-  color: #000;
-  text-align: center;
-  position: absolute;
-  margin-top: 21vh;
-}
-#Rimg {
+  padding-top: 20px;
   width: 100%;
-  height: auto;
-}
-.radio-player p {
-  margin: 15px;
-}
-.station-item::before {
-  content: "\25B6";
-  position: absolute;
-  top: 51%;
-  left: 49%;
-  transform: translate(-50%, -50%);
-  font-size: 50px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 50%;
-  padding: 8px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.station-item {
-  position: relative;
-  display: inline-block;
-}
-.station-item img {
-  width: 100%;
-  height: auto;
+  height: auto; /* Adjust height as needed */
+  text-align: center;
+  position: fixed; /* Make the container fixed-position */
+  top: 0; /* Position it at the top of the viewport */
+  left: 0; /* Position it at the left of the viewport */
+  right: 0; /* Stretch it horizontally to cover the entire width */
+  bottom: 0; /* Stretch it vertically to cover the entire height */
+  margin: auto; /* Center the iframe horizontally within the container */
 }
 
-.station-item:hover::before {
-  opacity: 1; /* Show play button on hover */
+iframe {
+  /* Set the width and height of your iframe here */
+  display: block;
+  width: calc(100vw - 40px); /* Responsive width */
+  height: 80vh; /* Adjust height as needed */
+  margin: 0 auto; /* Center the iframe horizontally within the container */
 }
-#resizedh1 {
-  font-size: 6vh;
-}
-
-#box-bg {
-  background-color: #ffdbac;
-}
-.padding {
-  margin: 25px;
-}
-#wider {
-  margin: 27px 27px;
-}
-.PushDown {
-  margin-top: 25px;
-}
-.HoverItem:hover {
-  color: #86198f;
-}
-
-.margin-bot {
-  margin-bottom: 5vh;
-}
-
-/* =================================================================*/
