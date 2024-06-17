@@ -10,21 +10,37 @@ main {
   margin-bottom: 12%;
   margin-top: 12%;
 }
-/* Add this to your CSS file */
-@media only screen and (max-width: 768px) {
-  /* Tablet and mobile styles here */
-  #main-content {
-	  margin-top: 12%;
+
+/* Simplified view for mobile and tablet devices */
+@media (max-width: 768px) {
+  #main-content.simplified-view {
+    /* Set the max-width of the main content to 100% of the viewport width */
+    max-width: 100vw;
+    /* Center the main content horizontally */
+    margin: 0 auto;
+    /* Override any existing padding */
     padding-bottom: 8em; /* Adjust as needed */
+    /* Set the table layout to fixed to ensure that the table width is not greater than the container width */
+    table-layout: fixed;
+    /* Set the width of the table cells to a percentage of the table width */
+    td,
+    th {
+      width: 1%;
+    }
+    /* Set the horizontal scrollbar to appear when the table width exceeds the container width */
+    overflow-x: auto;
+  }
+  
+  #footer-container {
+    text-align: center;
   }
 }
 
-@media only screen and (max-width: 480px) {
-  /* Mobile-specific styles here */
-  #main-content {
-	margin-top: 12%;
-    padding-bottom: 10em; /* Adjust as needed */
-  }
+/* Set the navbar and main content to share the same width */
+#navbar-container,
+#footer-container,
+#main-content {
+  width: 100%;
 }
 
 .content_lists {
