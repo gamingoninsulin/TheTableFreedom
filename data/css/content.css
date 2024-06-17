@@ -68,8 +68,11 @@ h1 {
 }
 
 .text-centery {
-  font-size: 30px !important;
+  font-size: 50px !important;
   text-align: center !important;
+}
+#item-image, #item-item {
+  text-align: center;
 }
 
 /* =========================== Plugins ======================================*/
