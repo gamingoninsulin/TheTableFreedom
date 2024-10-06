@@ -12,13 +12,12 @@
     <!-- Android Icons -->
     <link rel="icon" sizes="192x192" href="./data/img/android-192x192.png" />
     <link rel="icon" sizes="512x512" href="./data/img/android-512x512.png" />
-    <!-- Other favicon sizes -->
     <link rel="icon" sizes="16x16" href="./data/img/favicon-16x16.png" />
     <link rel="icon" sizes="32x32" href="./data/img/favicon-32x32.png" />
     <!-- Web App Manifest -->
     <link rel="manifest" href="./data/img/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>sample2</title>
+    <title>Minecraft Datapack Merger</title>
     <script
       src="https://kit.fontawesome.com/8060454e96.js"
       crossorigin="anonymous"></script>
@@ -38,30 +37,116 @@
 
     <div class="container" id="main-content">
       <h1 class="text-centery mb-4">Minecraft Datapack Merger</h1>
+      
+      <!-- <table>
+        <thead>
+          <tr>
+            <th>Minecraft Versions</th>
+            <th>Datapack Versions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>1.13 - 1.14.4</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>1.15 - 1.16.1</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>1.16.2 - 1.16.5</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>1.17 - 1.17.1</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>1.18 - 1.18.1</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td>1.18.2</td>
+            <td>9</td>
+          </tr>
+          <tr>
+            <td>1.19 - 1.19.3</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>1.19.4</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td>1.20 - 1.20.1</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <td>1.20.2</td>
+            <td>18</td>
+          </tr>
+          <tr>
+            <td>1.20.3 - 1.20.4</td>
+            <td>26</td>
+          </tr>
+          <tr>
+            <td>1.20.5 - 1.20.6</td>
+            <td>41</td>
+          </tr>
+          <tr>
+            <td>1.21 - 1.21.1</td>
+            <td>48</td>
+          </tr>
+          <tr>
+            <td>1.21.2 (Upcoming!)</td>
+            <td>55</td>
+          </tr>
+        </tbody>
+      </table>
+      <br><br> -->
       <div class="text-centery-small">
-        <!-- Inputs for datapack attributes -->
-    <label for="datapack-description">Datapack Description</label>
-    <input type="text" id="datapack-description" placeholder="Enter description for the combined datapack">
-
-    <label for="datapack-id">Datapack ID</label>
-    <input type="text" id="datapack-id" placeholder="Enter a unique ID for the datapack">
-
-    <label for="datapack-version">Pack Format Version</label>
-    <input type="number" id="datapack-version" min="1" value="15" placeholder="Enter pack format version">
-
-    <label for="pack-png">Pack.png (Optional)</label>
-    <input type="file" id="pack-png" accept="image/png">
+        <form id="datapacsForm">
+          <label>Minecraft Version:</label>
+          <select id="packFormat" name="packFormat" required>
+            <!-- <option value="55">1.21.2</option> -->
+            <option value="48">1.21 - 1.21.1</option>
+            <option value="41">1.20.5 - 1.20.6</option>
+            <option value="26">1.20.3 - 1.20.4</option>
+            <option value="18">1.20.2</option>
+            <option value="12">1.19.4</option>
+            <option value="10">1.19 - 1.19.3</option>
+            <option value="9">1.18.2</option>
+            <option value="8">1.18 - 1.18.1</option>
+            <option value="7">1.17 - 1.17.1</option>
+            <option value="6">1.16.2 - 1.16.5</option>
+            <option value="5">1.15 - 1.16.1</option>
+            <option value="4">1.13 - 1.14.4</option>
+        </select><br><br>
     
-    <label for="datapacks">Select Datapacks to Combine (ZIP files)</label>
-    <input type="file" id="datapacks" accept=".zip" multiple>
-    
-    <button class="meger-btn" onclick="startCombine()">Merge Datapacks</button>
+        <label for="description">Description:</label>
+        <input type="text" id="description" placeholder="Enter description" />
 
-    <!-- Status message will be displayed here -->
-    <p id="status-message" class=""></p>
+        <label for="datapackId">Datapack ID</label>
+        <input type="text" id="datapackId" placeholder="Enter a unique ID for the datapack">
+
+        <label for="packPngInput">Pack.png (Optional)</label>
+        <input type="file" id="packPngInput" accept="image/png">
+        
+        <label for="datapackFiles">Select Datapacks to Combine (ZIP files)</label>
+        <input type="file" id="datapackFiles" accept=".zip" multiple>
+        
+        <button type="button" class="combineButton" id="combineButton" >Merge Datapacks</button>
+
+        <div id="status-message"></div>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+            <div id="progress-text"></div>
         </div>
+        </form>
       </div>
     </div>
+    <br><br>
 
     <div id="footer-container">
       <!-- Footer content will be loaded dynamically here -->
@@ -74,6 +159,9 @@
     <script src="./data/js/jquery-1.10.2.min.js"></script>
     <script src="./data/js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="./data/js/jszip.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
     <script src="./data/js/datapackMerger.js"></script>
+
   </body>
 </html>
