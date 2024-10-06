@@ -1,0 +1,11 @@
+.centering iframe {
+  display: block;
+  width: 100px;
+  min-height: 100%;
+  margin: 0 auto;
+}
+.centering {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 2em;
+  padding: 2em 0em 2em;
+}
